@@ -28,7 +28,7 @@ function draw() {
   background(46,139,87)
 
   if (keyWentDown(UP_ARROW)){
-    writeStock(foodStock)
+    //writeStock(foodStock)
     doge.addImage(happyDog)
   }
 
