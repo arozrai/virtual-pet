@@ -15,8 +15,9 @@ function preload()
 
 function setup() {
   createCanvas(500, 500);
-  doge=createSprite(250,250,50,50)
+  doge=createSprite(250,250,10,10)
   doge.addImage(dog)
+  doge.scale=0.3
 
   database=firebase.database()
 
@@ -28,14 +29,14 @@ function draw() {
   background(46,139,87)
 
   if (keyWentDown(UP_ARROW)){
-    //writeStock(foodStock)
+    writeStock(foodS)
     doge.addImage(happyDog)
   }
 
   drawSprites();
   //add styles here
   fill("white")
-  text("food left: "+foodStock,200,440)
+  text("food left: "+foodS,200,440)
 
   text("Note: press UP_ARROW Key To Feed Drago Milk!",100,40)
 }
@@ -50,7 +51,8 @@ function writeStock(x){
   }else{
     x=x-1
   }
+
   database.ref('/').update({
-    Food:x
+    food:x
   })
 }
